@@ -1,0 +1,43 @@
+name: 检查并更新 PKGBUILD
+
+on:
+  schedule:
+    # GitHub Actions 可能因平台负载产生延迟；目标频率为每 30 分钟一次。
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maur-update
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
+    steps:
+      - name: 签出 maur
+        uses: actions/checkout@v4
+
+      - name: 检查上游 Release 并更新仓库
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update_releases.py
+
+      - name: 提交更新
+        run: |
+          set -eu
+          if [ -z "$(git status --short)" ]; then
+            echo '没有发现软件包更新。'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'chore: 更新 PKGBUILD 软件包'
+          git push origin "HEAD:${DEFAULT_BRANCH}"
