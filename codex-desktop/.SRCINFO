@@ -1,8 +1,8 @@
 pkgbase = codex-desktop
 	pkgdesc = ChatGPT desktop application for Manjaro KDE
-	pkgver = 26.930.61225
+	pkgver = 26.1002.51308
 	pkgrel = 1
-	url = https://github.com/pygojrc/codex-desktop-linux/releases/tag/manjaro-kde-26.930.61225
+	url = https://github.com/pygojrc/codex-desktop-linux/releases/tag/manjaro-kde-26.1002.51308
 	arch = x86_64
 	license = custom:upstream
 	depends = alsa-lib
@@ -43,7 +43,7 @@ pkgbase = codex-desktop
 	conflicts = chatgpt
 	options = !debug
 	options = !strip
-	source = https://github.com/pygojrc/codex-desktop-linux/releases/download/manjaro-kde-26.930.61225/codex-desktop-26.930.61225-1-x86_64.pkg.zst
-	sha256sums = a0ab7030ee0d46e0af9374774a2c7c2822bb974c800a31a5330bec97946486ac
+	source = https://github.com/pygojrc/codex-desktop-linux/releases/download/manjaro-kde-26.1002.51308/codex-desktop-26.1002.51308-1-x86_64.pkg.zst
+	sha256sums = eb68a42281dca764e68252c20d305081a025dc6b18336fabe538102b69d3f74e
 
 pkgname = codex-desktop
