@@ -5,11 +5,11 @@
 # UpdateAsset: codex-desktop-{version}-{pkgrel}-{arch}.pkg.zst
 # UpdateSource: https://github.com/{repo}/releases/download/{tag}/{asset}
 pkgname=codex-desktop
-pkgver=26.1013.40934
+pkgver=26.1016.51333
 pkgrel=1
 pkgdesc='ChatGPT desktop application for Manjaro KDE'
 arch=('x86_64')
-url='https://github.com/pygojrc/codex-desktop-linux/releases/tag/manjaro-kde-26.1013.40934'
+url='https://github.com/pygojrc/codex-desktop-linux/releases/tag/manjaro-kde-26.1016.51333'
 license=('custom:upstream')
 
 depends=(
@@ -57,8 +57,8 @@ conflicts=('chatgpt')
 options=(!debug !strip)
 
 _release_file="${pkgname}-${pkgver}-${pkgrel}-${arch}.pkg.zst"
-source=("https://github.com/pygojrc/codex-desktop-linux/releases/download/manjaro-kde-26.1013.40934/codex-desktop-26.1013.40934-1-x86_64.pkg.zst")
-sha256sums=('29937b6f5bfec3f922946fcef147ffb3cf6c2052f51702a60b3708f0af178d01')
+source=("https://github.com/pygojrc/codex-desktop-linux/releases/download/manjaro-kde-26.1016.51333/codex-desktop-26.1016.51333-1-x86_64.pkg.zst")
+sha256sums=('bf11a17e161d776e5762d0ee13a89ba23d8e74dd7dc8bede9f87249e5b520b1e')
 
 package() {
   # 只解包上游已签名/校验的 Manjaro 包内容，排除 pacman 元数据文件。
